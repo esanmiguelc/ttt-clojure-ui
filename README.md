@@ -7,10 +7,10 @@
 
 ### Running the tests
   This project uses the speclj framework for testing
-  - `lein spec`
+    lein spec
 
 ### Running the game
-  - `lein run`
+    lein run
 
   Notes:
 
