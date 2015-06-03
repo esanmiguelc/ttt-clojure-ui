@@ -6,7 +6,8 @@
   - This project runs on java 8
 
 ### Running the tests
-  This project uses the speclj framework for testing
+This project uses the speclj framework for testing
+
     lein spec
 
 ### Running the game
