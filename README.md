@@ -1,4 +1,4 @@
-# Tic Tac Toe in Clojure
+# Tic Tac Toe in Clojure Command-Line
  
 ### Project dependencies
   - Make sure you have the latest version of [leiningen](http://leiningen.org)
