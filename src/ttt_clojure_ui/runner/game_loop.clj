@@ -24,11 +24,10 @@
   (System/exit exit-code))
 
 (defn play-again? [] 
+  (writeln "")
   (writeln (messages/ask-play-again))
   (let [decision (read-int)]
-    (if (= decision 1) 
-       (run (vec (range 1 10)) first-participant second-participant)
-       (exit-game 0))))
+    (if (= decision 1) true false)))
 
 (defn run [board first-participant second-participant]
   (loop [board board]

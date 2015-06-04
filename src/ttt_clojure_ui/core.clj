@@ -6,4 +6,6 @@
 
 (defn -main []
   (ui/writeln (messages/welcome))
-  (game-loop/run (vec (range 1 10)) "X" "O"))
+  (loop [game (game-loop/run (vec (range 1 10)) "X" "O")]
+    (when (= true game)
+    (recur (game-loop/run (vec (range 1 10)) "X" "O")))))

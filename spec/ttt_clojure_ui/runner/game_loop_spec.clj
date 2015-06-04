@@ -40,17 +40,13 @@
     (with-stubs)
     (it "asks the player to play again"
       (with-redefs [exit-game (stub :exit-game)]
-      (should= "Play again?\nType 1 for yes\nType 2 for no\n" (with-out-str (with-in-str "2" (play-again?))))))
+      (should= "\nPlay again?\nType 1 for yes\nType 2 for no\n" (with-out-str (with-in-str "2" (play-again?))))))
 
-    (it "calls on run if player decides to play"
-      (with-redefs [run (stub :run)]
-        (with-out-str (with-in-str "1" (play-again?)))
-        (should-have-invoked :run)))
+    (it "returns true to play again"
+        (with-out-str (should= true (with-in-str "1" (play-again?)))))
 
     (it "exits if player decides not to play"
-      (with-redefs [exit-game (stub :exit-game)]
-        (with-out-str (with-in-str "2" (play-again?)))
-        (should-have-invoked :exit-game)))
+        (with-out-str (should= false (with-in-str "2" (play-again?)))))
 
     (it "calls the play-again method"
       (with-redefs [play-again? (stub :play-again?)]
