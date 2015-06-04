@@ -8,7 +8,6 @@
             [ttt-clojure-core.participants.hard-ai :as hard :refer :all]
             [ttt-clojure-ui.participants.human :as human :refer :all]))
 
-(declare run)
 
 (defn- get-player-move [board]
   (human/take-turn board))
