@@ -15,7 +15,7 @@
       (with-in-str (make-input '("a" 3))
         (should= 3 (read-int)))))
   (it "Asks to try again"
-    (should-contain "Move must be a number" (with-out-str 
+    (should-contain "input must be a number" (with-out-str 
                                               (with-in-str 
                                                 (make-input '("a" 3)) (read-int)))))
   )

@@ -14,7 +14,7 @@
 
 (defn- get-hard-ai-move [board]
   (writeln "\n")
-  (hard/get-move board "O" "X"))
+  (hard/get-move board rules/second-participant rules/first-participant))
 
 (defn- get-easy-ai-move [board]
   (dec (rand-nth (board/available-moves board))))
@@ -26,7 +26,7 @@
   (writeln "")
   (writeln (messages/ask-play-again))
   (let [decision (read-int)]
-    (if (= decision 1) true false)))
+    (= decision 1)))
 
 (defn run [board first-participant second-participant]
   (loop [board board]

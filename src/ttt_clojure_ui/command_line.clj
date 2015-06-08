@@ -1,4 +1,5 @@
-(ns ttt-clojure-ui.command-line)
+(ns ttt-clojure-ui.command-line
+  (:require [ttt-clojure-ui.messages :as messages :refer :all]))
 
 (defn writeln [string]
   (println string))
@@ -7,6 +8,6 @@
   (try
     (Integer/parseInt (read-line))
     (catch Exception e 
-      (do (writeln "Move must be a number, try again:")
+      (do (writeln (messages/invalid-input))
           (read-int)))))
 

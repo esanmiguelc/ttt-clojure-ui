@@ -6,8 +6,17 @@
   (it "has a welcome message"
     (should= "Welcome to a game of Tic Tac Toe!" (welcome)))
 
+  (it "input must be a number"
+    (should= "input must be a number, try again:" (invalid-input)))
+
+  (it "move is out of range"
+    (should= "Move out of range, try again: " (out-of-range)))
+
   (it "asks user to make a move"
-    (should= "Please make a move:" (ask-make-move)))
+    (should= "Please make a move: " (ask-make-move)))
+
+  (it "move is taken"
+    (should= "Move taken, try again: " (move-taken)))
 
   (it "lets user know who won"
     (should= "X Wins!" (display-winner "X")))
