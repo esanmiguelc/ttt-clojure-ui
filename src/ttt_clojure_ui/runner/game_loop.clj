@@ -22,7 +22,8 @@
 (defn exit-game [exit-code]
   (System/exit exit-code))
 
-(defn play-again? [] 
+
+(defn play-again? []
   (writeln "")
   (writeln (messages/ask-play-again))
   (let [decision (read-int)]
@@ -32,10 +33,10 @@
   (loop [board board]
     (ui/writeln (board-display/display-board board))
     (cond
-      (rules/winner? board first-participant) (do 
+      (rules/winner? board first-participant) (do
                                                 (ui/writeln (messages/display-winner first-participant))
                                                 (play-again?))
-      (rules/winner? board second-participant) (do 
+      (rules/winner? board second-participant) (do
                                                 (ui/writeln (messages/display-winner second-participant))
                                                 (play-again?))
       (board/board-full? board) (do (ui/writeln (messages/tie))
@@ -45,3 +46,8 @@
          (recur (runner/play board first-participant second-participant (list (get-player-move board))))
          (recur (runner/play board first-participant second-participant (list (get-hard-ai-move board))))
          ))))
+
+(defn run-game []
+  (loop [game (run board/board first-participant second-participant)]
+    (when (= true game)
+      (recur (run board/board first-participant second-participant)))))

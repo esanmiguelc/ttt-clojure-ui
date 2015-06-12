@@ -8,6 +8,4 @@
 
 (defn -main []
   (ui/writeln (messages/welcome))
-  (loop [game (game-loop/run board first-participant second-participant)]
-    (when (= true game)
-    (recur (game-loop/run board first-participant second-participant)))))
+  (game-loop/run-game))
